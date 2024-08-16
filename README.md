@@ -2,6 +2,10 @@
 
 This is a REST API service for choosing a vacation spot.
 
+## ER diagram
+
+![er-diagram](./screenshots/er-diagram.png)
+
 ## Setup
 
 ### Cloning
