@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "baf2e35e-e0d8-409e-9b9c-362c3e061822",
+		"name": "Sputnik",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8124277"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register new user",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"john\",\n    \"password\": \"StrongPassword1!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						},
+						"description": "### Register new user\n\nThe `POST /api/register` endpoint allows to register a new user.\n\n#### Request Body\n\n- `login` (string, required): The login username for the user\n- `password` (string, required): The password for the user's account\n    \n\n#### Response Body\n\n##### 201 Created\n\n``` json\n{\n    \"message\": \"string\",\n    \"user\": {\n        \"id\": 0,\n        \"login\": \"string\",\n        \"role\": \"string\",\n        \"updated_at\": \"string\",\n        \"created_at\": \"string\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Login user",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"john\",\n    \"password\": \"StrongPassword1!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "### Login user\n\nThe `POST /api/login` endpoint is used to authenticate and obtain a token for accessing protected resources.\n\n#### Request Body\n\n- `login` (string, required): The login username for the user\n- `password` (string, required): The password for the user's account\n    \n\n#### Response Body\n\n##### 200 OK\n\n``` json\n{\n    \"token\": \"string\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get users",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "### Get users\n\nThe `GET /api/users` endpoint retrieves a list of users.\n\n#### Response Body\n\n##### 200 OK\n\n``` json\n[\n    {\n        \"id\": 0,\n        \"login\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\",\n        \"role\": \"string\"\n    }\n]\n\n ```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vacation spots",
+			"item": [
+				{
+					"name": "Create new vacation spot",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Coastal Cliffside\",\n    \"latitude\": \"36.6205\",\n    \"longitude\": \"-121.9045\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/vacation-spots",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"vacation-spots"
+							]
+						},
+						"description": "### Create new vacation spot\n\nThe `POST /api/vacation-spots` endpoint allows to create a new vacation spot.\n\n#### Request Body\n\n- `title` (string, required): The title of the vacation spot\n- `latitude` (string, required): The latitude of the vacation spot\n- `longitude` (string, required): The longitude of the vacation spot\n    \n\n#### Response Body\n\n##### 201 Created\n\n``` json\n{\n    \"id\": 0,\n    \"title\": \"string\",\n    \"latitude\": \"string\",\n    \"longitude\": \"string\",\n    \"updated_at\": \"string\",\n    \"created_at\": \"string\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get vacation spots",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/vacation-spots",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"vacation-spots"
+							]
+						},
+						"description": "### Get vacation spots\n\nThe `GET /api/vacation-spots` endpoint retrieves a list of vacation spots.\n\n#### Response Body\n\n##### 200 OK\n\n``` json\n[\n    {\n        \"id\": 0,\n        \"title\": \"string\",\n        \"latitude\": \"string\",\n        \"longitude\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n    }\n]\n\n ```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wishlists",
+			"item": [
+				{
+					"name": "Add vacation spot to wishlist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vacation_spot_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/wishlists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"wishlists"
+							]
+						},
+						"description": "### Add vacation spot to wishlist\n\nThe `POST /api/wishlists` endpoint allows to create a new wishlist entry by providing the vacation spot ID.\n\n#### **Request Body**\n\n- `vacation_spot_id` (integer): The ID of the vacation spot for the wishlist\n    \n\n#### **Response Body**\n\n##### 201 Created\n\n``` json\n{\n    \"id\": 0,\n    \"user_id\": 0,\n    \"vacation_spot_id\": 0,\n    \"updated_at\": \"string\",\n    \"created_at\": \"string\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get wishlist by user ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/wishlists?userId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"wishlists"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "### Get wishlist by user ID\n\nThe `GET /api/wishlists` endpoint retrieves a wishlist for a specific user based on the provided user ID.\n\n#### Query Parameters\n\n- `userId` (integer, required): The ID of the user for whom wishlist is to be retrieved\n    \n\n#### Response Body\n\n##### 200 OK\n\n``` json\n[\n    {\n        \"id\": 0,\n        \"user_id\": 0,\n        \"vacation_spot_id\": 0,\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\",\n        \"vacation_spot\": {\n            \"id\": 0,\n            \"title\": \"string\",\n            \"latitude\": \"string\",\n            \"longitude\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\"\n        }\n    }\n]\n\n ```"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.request.headers.add({",
+					"    key: 'Accept',",
+					"    value: 'application/json'",
+					"});",
+					"",
+					"if (!pm.collectionVariables.get('authToken')",
+					"    || pm.collectionVariables.get('tokenExpiryTime') < new Date().getTime()) {",
+					"    pm.sendRequest({",
+					"        url: 'http://localhost/api/login',",
+					"        method: 'POST',",
+					"        header: {",
+					"            'Content-Type': 'application/json',",
+					"            'Accept': 'application/json'",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({",
+					"                login: 'admin',",
+					"                password: 'password'",
+					"            })",
+					"        }",
+					"    }, function (err, res) {",
+					"        if (err) {",
+					"            console.log(err);",
+					"        } else {",
+					"            var jsonResponse = res.json();",
+					"            pm.collectionVariables.set('authToken', jsonResponse.token);",
+					"            pm.collectionVariables.set('tokenExpiryTime', new Date().getTime() + (60 * 60 * 1000));",
+					"            console.log('Auth token set: ' + jsonResponse.token);",
+					"        }",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "authToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "tokenExpiryTime",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
