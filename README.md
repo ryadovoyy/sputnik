@@ -17,12 +17,10 @@ cd sputnik
 
 ### Environment variables
 
-Copy the env example file and run several `artisan` commands to generate the app and secret keys:
+Copy the env example file:
 
 ```bash
 cp .env.example .env
-php artisan key:generate
-php artisan jwt:secret
 ```
 
 Change `DB_DATABASE`, `DB_USERNAME` and `DB_PASSWORD` variables if you want.
@@ -30,13 +28,21 @@ Change `DB_DATABASE`, `DB_USERNAME` and `DB_PASSWORD` variables if you want.
 ## Run
 
 ```bash
-docker compose up
+docker compose up --build
 ```
 
-Then execute this command to run migrations and seeders:
+Install dependencies and generate the app and secret keys:
 
 ```bash
-./vendor/bin/sail artisan migrate --seed
+docker compose exec app composer install
+docker compose exec app php artisan key:generate
+docker compose exec app php artisan jwt:secret
+```
+
+Then run migrations and seeders:
+
+```bash
+docker compose exec app php artisan migrate --seed
 ```
 
 ## Test
