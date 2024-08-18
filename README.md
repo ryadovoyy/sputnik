@@ -28,7 +28,7 @@ Change `DB_DATABASE`, `DB_USERNAME` and `DB_PASSWORD` variables if you want.
 ## Run
 
 ```bash
-docker compose up --build
+docker compose up -d --build
 ```
 
 Install dependencies and generate the app and secret keys:
